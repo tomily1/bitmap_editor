@@ -14,8 +14,6 @@ require 'validator'
 class BitmapEditor
   attr_reader :file_path, :directives, :raw_directives
 
-  SUPPORTED_COMMANDS_REGEX = Regexp.new(/^[I|C|L|V|H|S]/)
-
   def initialize(file_path)
     @file_path = file_path
   end
