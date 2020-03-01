@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe BitmapEditor do
-  let(:invalid_extension) { fixture('invalid_extension.csv')}
+  let(:invalid_extension) { fixture('invalid_extension.csv') }
   let(:invalid_path) { fixture('invalid_path.txt') }
   let(:invalid_command) { fixture('invalid_command.txt') }
   let(:valid_file) { fixture('valid_file.txt') }
@@ -10,7 +12,7 @@ describe BitmapEditor do
   let(:c_file) { fixture('c.txt') }
 
   describe '#initialize' do
-    it 'creates a new instance of the bitmap editor'  do
+    it 'creates a new instance of the bitmap editor' do
       expect(described_class.new(valid_file)).to be_truthy
     end
   end
@@ -44,7 +46,7 @@ describe BitmapEditor do
 
         expect do
           described_class.new(empty_file).run
-        end.to output("").to_stdout
+        end.to output('').to_stdout
       end
     end
 

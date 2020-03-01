@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BitmapImage
   attr_accessor :rows, :columns, :pixels
 
@@ -11,7 +13,8 @@ class BitmapImage
   end
 
   def show
-    return "" if @pixels.nil?
+    return '' if @pixels.nil?
+
     @pixels.map do |pixel|
       pixel.join('')
     end.join("\n")

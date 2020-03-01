@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Directive
   def initialize(line)
     @line = line
@@ -8,8 +10,8 @@ class Directive
   end
 
   def partitions
-    @coordinates ||= Hash[[:coordinates, :colour].zip(
-      command_line.last.strip.split(" ").partition do |val|
+    @coordinates ||= Hash[%i[coordinates colour].zip(
+      command_line.last.strip.split(' ').partition do |val|
         val !~ /[A-Z]/
       end
     )]

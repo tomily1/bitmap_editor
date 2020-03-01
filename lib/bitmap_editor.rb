@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pry'
 require 'commands/command'
 require 'commands/clear_table'
@@ -28,17 +30,17 @@ class BitmapEditor
       directives = Directive.new(line.chomp)
 
       case directives.command
-      when "I"
+      when 'I'
         CreateImage.new(bitmap_image, directives.partitions).run
-      when "C"
+      when 'C'
         ClearTable.new(bitmap_image).run
-      when "L"
+      when 'L'
         ColourLocation.new(bitmap_image, directives.partitions).run
-      when "V"
+      when 'V'
         VerticalSegment.new(bitmap_image, directives.partitions).run
-      when "H"
+      when 'H'
         HorizontalSegment.new(bitmap_image, directives.partitions).run
-      when "S"
+      when 'S'
         puts bitmap_image.show
       else
         puts "Invalid command directives (#{directives.command})"

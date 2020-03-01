@@ -1,5 +1,6 @@
-class CreateImage < Command
+# frozen_string_literal: true
 
+class CreateImage < Command
   def run
     @image.rows = coordinates.last
     @image.columns = coordinates.first
