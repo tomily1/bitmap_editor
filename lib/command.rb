@@ -7,7 +7,7 @@ class Command
   private
 
   def colour
-    @colour ||= @partitions.fetch(:colours)[0]
+    @colour ||= @partitions.fetch(:colour)[0]
   end
 
   def coordinates
