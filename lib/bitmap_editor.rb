@@ -31,15 +31,15 @@ class BitmapEditor
 
       case directives.command
       when 'I'
-        CreateImage.new(bitmap_image, directives.partitions).run
+        CreateImage.new(bitmap_image, directives).run
       when 'C'
         ClearTable.new(bitmap_image).run
       when 'L'
-        ColourLocation.new(bitmap_image, directives.partitions).run
+        ColourLocation.new(bitmap_image, directives).run
       when 'V'
-        VerticalSegment.new(bitmap_image, directives.partitions).run
+        VerticalSegment.new(bitmap_image, directives).run
       when 'H'
-        HorizontalSegment.new(bitmap_image, directives.partitions).run
+        HorizontalSegment.new(bitmap_image, directives).run
       when 'S'
         puts bitmap_image.show
       else

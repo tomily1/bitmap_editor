@@ -3,6 +3,8 @@
 # draw horizontal segment
 class HorizontalSegment < Command
   def run
+    super
+
     @image.pixels[positions.last][segment] = colour_area
   end
 
