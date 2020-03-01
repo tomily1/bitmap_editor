@@ -40,7 +40,7 @@ describe BitmapEditor do
       it 'when file and commands are valid' do
         expect do
           described_class.new(valid_file).run
-        end.to output("OOOOO\nOOZZZ\nAWOOO\nOWOOO\nOWOOO\nOWOOO").to_stdout
+        end.to output(/OOOOO\nOOZZZ\nAWOOO\nOWOOO\nOWOOO\nOWOOO\n/).to_stdout
 
         expect do
           described_class.new(empty_file).run
@@ -50,11 +50,15 @@ describe BitmapEditor do
 
     context 'commands' do
       it 'creates M x N pixels when sent \'I 4 4\' directive' do
-        expect(described_class.new(i_file).run).to eq("OOOO\nOOOO\nOOOO\nOOOO\n")
+        expect do
+          described_class.new(i_file).run
+        end.to output("OOOO\nOOOO\nOOOO\nOOOO\n").to_stdout
       end
 
       it 'clears the M x N pixels when sent \'C\' directive' do
-        expect(described_class.new(c_file).run).to eq("OOOO\nOOOO\nOOOO\nOOOO\n")
+        expect do
+          described_class.new(c_file).run
+        end.to output("OOOO\nOOOO\nOOOO\nOOOO\n").to_stdout
       end
     end
   end

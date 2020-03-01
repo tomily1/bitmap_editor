@@ -7,8 +7,8 @@ class Directive
     command_line.first.strip
   end
 
-  def coordinates
-    @coordinates ||= Hash[[:coordinates, :color].zip(
+  def partitions
+    @coordinates ||= Hash[[:coordinates, :colour].zip(
       command_line.last.strip.split(" ").partition do |val|
         val !~ /[A-Z]/
       end
