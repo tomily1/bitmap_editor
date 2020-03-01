@@ -8,6 +8,8 @@ describe BitmapEditor do
   let(:invalid_command) { fixture('invalid_command.txt') }
   let(:valid_file) { fixture('valid_file.txt') }
   let(:empty_file) { fixture('empty_file.txt') }
+  let(:invalid_routine) { fixture('invalid_routine.txt') }
+  let(:invalid_coordinate) { fixture('invalid_coordinate.txt') }
   let(:i_file) { fixture('i.txt') }
   let(:c_file) { fixture('c.txt') }
 
@@ -61,6 +63,20 @@ describe BitmapEditor do
         expect do
           described_class.new(c_file).run
         end.to output("OOOO\nOOOO\nOOOO\nOOOO\n").to_stdout
+      end
+    end
+
+    context 'errors' do
+      it 'raises error when the routine is invalid' do
+        expect do
+          described_class.new(invalid_routine).run
+        end.to raise_error(InvalidRoutineError)
+      end
+
+      it 'raises error when the coordinate is invalid' do
+        expect do
+          described_class.new(invalid_coordinate).run
+        end.to raise_error(InvalidCoordinateError)
       end
     end
   end
