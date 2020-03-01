@@ -1,13 +1,13 @@
 require 'pry'
-require 'command'
+require 'commands/command'
+require 'commands/clear_table'
+require 'commands/colour_location'
+require 'commands/create_image'
+require 'commands/horizontal_segment'
+require 'commands/vertical_segment'
 require 'bitmap_image'
-require 'clear_table'
-require 'colour_location'
-require 'create_image'
 require 'directive'
-require 'horizontal_segment'
 require 'validator'
-require 'vertical_segment'
 
 class BitmapEditor
   attr_reader :file_path, :directives, :raw_directives
