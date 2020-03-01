@@ -1,0 +1,2 @@
+class BitmapImage
+end
