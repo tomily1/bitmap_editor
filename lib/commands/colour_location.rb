@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# colours specific location
 class ColourLocation < Command
   def run
     @image.pixels.tap do |i|

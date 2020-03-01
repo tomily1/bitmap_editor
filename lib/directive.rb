@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# takes command routines and partitions them
 class Directive
   def initialize(line)
     @line = line
@@ -10,7 +11,7 @@ class Directive
   end
 
   def partitions
-    @coordinates ||= Hash[%i[coordinates colour].zip(
+    @partitions ||= Hash[%i[coordinates colour].zip(
       command_line.last.strip.split(' ').partition do |val|
         val !~ /[A-Z]/
       end

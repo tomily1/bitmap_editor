@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler'
+$LOAD_PATH.unshift("#{Bundler.root}/lib")
+require 'bitmap_editor'
+
+BitmapEditor.new(ARGV[0]).run

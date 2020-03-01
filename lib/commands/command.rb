@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Base class for commands
 class Command
   def initialize(image, partitions)
     @image = image

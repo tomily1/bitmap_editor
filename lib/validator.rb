@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# validates commands
 class Validator
   attr_reader :path
 
