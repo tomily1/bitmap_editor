@@ -15,46 +15,46 @@ describe BitmapEditor do
     end
   end
 
-  describe '#run_commands' do
+  describe '#run' do
     context 'returns validations error' do
       it 'when file extension is invalid' do
         expect do
-          described_class.new(invalid_extension).run_commands
+          described_class.new(invalid_extension).run
         end.to output(/Invalid File format/).to_stdout
       end
 
       it 'when file path is invalid' do
         expect do
-          described_class.new(invalid_path).run_commands
+          described_class.new(invalid_path).run
         end.to output(/File does not exist/).to_stdout
       end
 
       it 'when non supported command directive is used' do
         expect do
-          described_class.new(invalid_path).run_commands
-        end.to output(/Invalid command(s)/).to_stdout
+          described_class.new(invalid_command).run
+        end.to output("Invalid command directives (R)\n").to_stdout
       end
     end
 
     context 'returns valid output' do
       it 'when file and commands are valid' do
         expect do
-          described_class.new(valid_file).run_commands
+          described_class.new(valid_file).run
         end.to output("OOOOO\nOOZZZ\nAWOOO\nOWOOO\nOWOOO\nOWOOO").to_stdout
 
         expect do
-          described_class.new(empty_file).run_commands
+          described_class.new(empty_file).run
         end.to output("").to_stdout
       end
     end
 
     context 'commands' do
       it 'creates M x N pixels when sent \'I 4 4\' directive' do
-        expect(described_class.new(i_file).run_commands).to eq("OOOO\nOOOO\nOOOO\nOOOO\n")
+        expect(described_class.new(i_file).run).to eq("OOOO\nOOOO\nOOOO\nOOOO\n")
       end
 
       it 'clears the M x N pixels when sent \'C\' directive' do
-        expect(described_class.new(c_file).run_commands).to eq("OOOO\nOOOO\nOOOO\nOOOO\n")
+        expect(described_class.new(c_file).run).to eq("OOOO\nOOOO\nOOOO\nOOOO\n")
       end
     end
   end
