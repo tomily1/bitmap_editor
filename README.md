@@ -2,8 +2,9 @@
 
 ### How to run Program
 
-1. run `chmod 777 ./bin/bitmap_editor`
-2. run `bin/bitmap_editor examples/show.txt`
+1. run `bundle install`
+2. run `chmod 777 ./bin/bitmap_editor`
+3. run `bin/bitmap_editor examples/show.txt`
 
 ## Testing and Development
 
